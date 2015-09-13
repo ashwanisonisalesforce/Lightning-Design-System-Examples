@@ -1,37 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>AccountViewProxy</members>
-        <members>AuraDashboardController</members>
-        <members>DeleteSobjectBatch</members>
-        <members>DummyDataCreator</members>
         <members>LightningDesignExperienceController</members>
-        <members>SalesforceStyleGuideController</members>
-        <members>SelectRadio</members>
-        <members>SelectRadioController</members>
-        <members>SendAnEmailController</members>
         <name>ApexClass</name>
     </types>
     <types>
-        <members>AccountStandardPage</members>
-        <members>AngularDemoTemplate</members>
-        <members>AttachmentUploader</members>
-        <members>HelloDreamforce</members>
         <members>LightningDesignExperience</members>
-        <members>OpportunityStandardPage</members>
-        <members>SelectRadioPage</members>
-        <members>Send_an_Email</members>
-        <members>TemplateSelector</members>
         <name>ApexPage</name>
     </types>
     <types>
-        <members>AccountViewDirectiveJS</members>
-        <members>AccountViewFactoryJS</members>
-        <members>AccountViewJS</members>
-        <members>AccountViewServiceJS</members>
-        <members>AuraCSS</members>
-        <members>Bootstrap335</members>
-        <members>angular141</members>
+        <members>SLDS080</members>
         <name>StaticResource</name>
     </types>
     <version>33.0</version>
