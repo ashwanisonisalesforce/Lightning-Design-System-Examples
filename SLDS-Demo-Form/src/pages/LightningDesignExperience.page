@@ -1,0 +1,194 @@
+<apex:page standardstylesheets="false" showheader="false" controller="LightningDesignExperienceController">
+	<apex:stylesheet value="/resource/SLDS080/assets/styles/salesforce-lightning-design-system-vf.min.css"/>
+	
+		
+		    <apex:form >
+		    <div class="slds">
+		        
+			        <div class="slds-notify slds-notify--alert slds-theme--success slds-theme--alert-texture" role="alert">
+					  <span class="slds-assistive-text">Success</span>
+					  <button class="slds-button slds-notify__close">
+					    x
+					    <span class="slds-assistive-text">Close</span>
+					  </button>
+					  <h2>
+					    <span aria-hidden="true" class="slds-button__icon">
+				      		<img src="/resource/SLDS080/assets/icons/utility/connected_apps.svg" alt="Placeholder" style="max-width: 25px;"/>
+				          </span>
+					    Lightning Design Experience by Ashwani Soni
+					  </h2>
+					</div>
+					<div class="slds-form--compound slds-m-top--xxx-small">
+						<div class="slds-form-element">
+							<div class="slds-form-element__row ">
+								<div class="slds-media slds-media--responsive slds-media--center slds-container--left slds-size--1-of-1">
+								  <div class="slds-media__figure">
+								    <img src="/resource/SLDS080/assets/images/avatar2.jpg" style="height:100px;" alt="Placeholder" />
+								  </div>
+								  <div class="slds-media__body">
+								    <p>Lightning Experience is a completely new Salesforce and a completely new way to sell. It’s a re-imagined platform designed to maximize sales rep productivity, complete with analytics and in-line intelligence that will drive sales precision.</p>
+								  </div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="slds-grid slds-grid--align-spread ">
+						<button class="slds-button slds-button--brand" onclick="save();">
+							<span aria-hidden="true" class="slds-button__icon slds-button__icon--left">
+					      		<img src="/resource/SLDS080/assets/icons/utility/add.svg" alt="Placeholder" style="max-width: 16px;"/>
+					        </span>
+							Save
+						</button>
+						<button class="slds-button slds-button--neutral" onclick="reset();">
+							  Cancel
+							  <span aria-hidden="true" class="slds-button__icon slds-button__icon--right">
+					      		<img src="/resource/SLDS080/assets/icons/utility/refresh.svg" alt="Placeholder" style="max-width: 16px; -webkit-filter: invert(60%);"/>
+					          </span>
+						</button>	
+					</div>
+			        <div class="slds-form--stacked slds-m-top--small">
+						<div class="slds-form-element">
+						  <label class="slds-form-element__label" for="sample1">{!$ObjectType.Account.fields.Name.Label}</label>
+						  <div class="slds-form-element__control">
+						    <apex:inputfield styleclass="slds-input slds-is-required" value="{!acc.Name}"/>
+						  </div>
+						</div>
+						
+						<div class="slds-form-element">
+						  <label class="slds-form-element__label" for="sample1">{!$ObjectType.Account.fields.accountsource.Label}</label>
+						  <div class="slds-form-element__control slds-picklist">
+						    <apex:inputfield styleclass="slds-select " value="{!acc.accountsource}"/>
+						  </div>
+						</div>
+						
+						<div class="slds-form-element">
+						  <label class="slds-form-element__label" for="sample1">{!$ObjectType.Account.fields.description.Label}</label>
+						  <div class="slds-form-element__control slds-picklist">
+						    <apex:inputfield styleclass="slds-textarea" value="{!acc.description}"/>
+						  </div>
+						</div>
+					</div>
+					<fieldset class="slds-form--compound">
+					  <legend class="slds-form-element__label">{!$ObjectType.Account.fields.BillingAddress.Label}</legend>
+					  <div class="form-element__group">
+					    <div class="slds-form-element__row">
+					      <label class="slds-form-element__control slds-size--1-of-1">
+					        <span class="slds-form-element__helper">{!$ObjectType.Account.fields.BillingStreet.Label}</span>
+					        <apex:inputfield styleclass="slds-input" value="{!acc.BillingStreet}"/>
+					      </label>
+					    </div>
+					    <div class="slds-form-element__row slds-large-show">
+					      <label class="slds-form-element__control slds-size--1-of-2" style="width: 49.8%;">
+					        <span class="slds-form-element__helper">{!$ObjectType.Account.fields.BillingCity.Label}</span>
+					        <apex:inputfield styleclass="slds-input" value="{!acc.BillingCity}"/>
+					      </label>
+					      <label class="slds-form-element__control slds-size--1-of-2" style="width: 49.8%; padding-left: 1px;">
+					        <span class="slds-form-element__helper">{!$ObjectType.Account.fields.BillingState.Label}</span>
+					        <apex:inputfield styleclass="slds-input" value="{!acc.BillingState}"/>
+					      </label>
+					    </div>
+					    <div class="slds-form-element__row slds-large-show">
+					      <label class="slds-form-element__control slds-size--1-of-2" style="width: 49.8%;">
+					        <span class="slds-form-element__helper">{!$ObjectType.Account.fields.BillingCountry.Label}</span>
+					        <apex:inputfield styleclass="slds-input" value="{!acc.BillingCountry}"/>
+					      </label>
+					      <label class="slds-form-element__control slds-size--1-of-2" style="width: 49.8%; padding-left: 1px;">
+					        <span class="slds-form-element__helper">{!$ObjectType.Account.fields.BillingPostalCode.Label}</span>
+					        <apex:inputfield styleclass="slds-input" value="{!acc.BillingPostalCode}"/>
+					      </label>
+					    </div>
+					    <div class="slds-form-element__row slds-small-show-only slds-x-small-show-only slds-medium-show-only">
+					      <label class="slds-form-element__control slds-size--1-of-1">
+					        <span class="slds-form-element__helper">{!$ObjectType.Account.fields.BillingCity.Label}</span>
+					        <apex:inputfield styleclass="slds-input" value="{!acc.BillingCity}"/>
+					      </label>
+					      <label class="slds-form-element__control slds-size--1-of-1" style=" padding-left: 1px;">
+					        <span class="slds-form-element__helper">{!$ObjectType.Account.fields.BillingState.Label}</span>
+					        <apex:inputfield styleclass="slds-input" value="{!acc.BillingState}"/>
+					      </label>
+					    </div>
+					    <div class="slds-form-element__row slds-small-show-only slds-x-small-show-only slds-medium-show-only">
+					      <label class="slds-form-element__control slds-size--1-of-1" style="">
+					        <span class="slds-form-element__helper">{!$ObjectType.Account.fields.BillingCountry.Label}</span>
+					        <apex:inputfield styleclass="slds-input" value="{!acc.BillingCountry}"/>
+					      </label>
+					      <label class="slds-form-element__control slds-size--1-of-1" style=" padding-left: 1px;">
+					        <span class="slds-form-element__helper">{!$ObjectType.Account.fields.BillingPostalCode.Label}</span>
+					        <apex:inputfield styleclass="slds-input" value="{!acc.BillingPostalCode}"/>
+					      </label>
+					    </div>
+					  </div>
+					</fieldset>
+					
+					<div class="slds-card">
+					  <div class="slds-card__header slds-grid">
+					    <div class="slds-media slds-media--center slds-has-flexi-truncate">
+					      <div class="slds-media__figure slds-icon slds-icon-standard-contact slds-icon--small">
+					        <img src="/resource/SLDS080/assets/icons/standard/contact_60.png" alt="Placeholder" />
+					      </div>
+					      <div class="slds-media__body">
+					        <h2 class="slds-text-heading--small slds-truncate">Contacts ({!acc.Contacts.size})</h2>
+					      </div>
+					    </div>
+					    <div class="slds-no-flex">
+					      <div class="slds-button-group demo-space" role="group">
+							  <button class="slds-button slds-button--neutral">Add Contact</button>
+							  <button class="slds-button slds-button--icon-border-filled">
+							    <span aria-hidden="true" class="slds-button__icon">
+							      <img src="/resource/SLDS080/assets/icons/utility/down.svg" alt="Placeholder" style="max-width: 50%; -webkit-filter: invert(60%);"/>
+							    </span>
+							    <span class="slds-assistive-text">More Actions</span>
+							  </button>
+							</div>
+					    </div>
+					  </div>
+					  <div class="slds-card__body">
+					    <table class="slds-table slds-table--bordered slds-max-medium-table--stacked-horizontal slds-no-row-hover">
+					      <thead>
+					        <tr>
+					          <th class="slds-text-heading--label slds-size--1-of-4" scope="col">Name</th>
+					          <th class="slds-text-heading--label slds-size--1-of-4" scope="col">Company</th>
+					          <th class="slds-text-heading--label slds-size--1-of-4" scope="col">Title</th>
+					          <th class="slds-text-heading--label slds-size--1-of-4" scope="col">Email</th>
+					          <th class="slds-row-action" scope="col">
+					            <button class="slds-button slds-button--icon-border-filled slds-button--icon-border-small">
+					              <span aria-hidden="true" class="slds-button__icon">
+								      <img src="/resource/SLDS080/assets/icons/utility/down.svg" alt="Placeholder" style="max-width: 50%; -webkit-filter: invert(60%);"/>
+								    </span>
+					              <span class="slds-assistive-text">Show More</span>
+					            </button>
+					          </th>
+					        </tr>
+					      </thead>
+					      <tbody>
+					      	<apex:repeat value="{!acc.Contacts}" var="con">
+					        	<tr class="slds-hint-parent">
+						          <td class="slds-size--1-of-4" data-label="Name">{!con.Name}</td>
+						          <td class="slds-size--1-of-4" data-label="Company">{!con.Account.Name}</td>
+						          <td class="slds-size--1-of-4" data-label="Title">{!con.Title}</td>
+						          <td class="slds-size--1-of-4" data-label="Email">{!con.email}</td>
+						          <td>
+						            <button class="slds-button slds-button--icon-border-filled slds-button--icon-border-small">
+						              <span aria-hidden="true" class="slds-button__icon">
+								      	<img src="/resource/SLDS080/assets/icons/utility/down.svg" alt="Placeholder" style="max-width: 50%; -webkit-filter: invert(60%);"/>
+								      </span>
+						              <span class="slds-assistive-text">Show More</span>
+						            </button>
+						          </td>
+					        	</tr>
+					        </apex:repeat>
+					      </tbody>
+					    </table>
+					  </div>
+					  <div class="slds-card__footer"><a href="#">View All <span class="slds-assistive-text">entity type</span></a></div>
+					</div>			
+				</div>
+			    
+			    
+			    <apex:actionfunction name="save" action="{!save}" rerender="slda"/>
+			    <apex:actionfunction name="reset" action="{!reset}" rerender="slds"/>
+			</apex:form>
+		  
+		
+	
+</apex:page>
